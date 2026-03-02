@@ -75,7 +75,7 @@ Heap breaks are constant for `alloca` at 69 whereas for the other programs the h
 
 ### Considering either the **malloc.cpp** or **alloca.cpp** versions of the program, generate a diagram showing two `Node`s. Include in the diagram, the relationship of the `head`, `tail`, and `Node` `next` pointers. ; Show the size (in bytes) and structure of a `Node` that allocated six bytes of data; Include the `bytes` pointer, and indicate using an arrow which byte in the allocated memory it points to.
 
-![alloca](Pasted image 20260302052832.png)
+![alloca](alloca.png)
 
 ---
 
