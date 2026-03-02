@@ -75,22 +75,26 @@ Heap breaks are constant for `alloca` at 69 whereas for the other programs the h
 
 ### Considering either the **malloc.cpp** or **alloca.cpp** versions of the program, generate a diagram showing two `Node`s. Include in the diagram, the relationship of the `head`, `tail`, and `Node` `next` pointers. ; Show the size (in bytes) and structure of a `Node` that allocated six bytes of data; Include the `bytes` pointer, and indicate using an arrow which byte in the allocated memory it points to.
 
+![alloca](Pasted image 20260302052832.png)
+
+---
 
 ### There's an overhead to allocating memory, initializing it, and eventually processing (in our case, hashing it). For each program, were any of these tasks the same? Which one(s) were different?
 
+For each program initializing and processing the memory into the was the same process. We know hashing is the same because we are returned the same hash in the `test` program. The only thing that differed was how that memory was being allocated. For `malloc` and `new` memory is being allocated on the heap, whereas the memory for `list` is being stored in a `std::vector` which is also stored on the heap and lastly `alloca` allocates memory on the stack.
 
 
 ---
 
 ### As the size of data in a `Node` increases, does the significance of allocating the node increase or decrease?
-I believe that the significance of allocating a node increases as the size of the data in a node increases. This can be seen in the increase in the system time when I increased the `MAX_BYTES` from `MAX_BYTES=100000` to`MAX_BYTES=1000000`, in case of `alloca` the system time jumped from around 0.24 to 2.39.  Similar spikes were seen in other programs as well. This makes sense because we are trying to allocate a larger blob of memory which can be harder to find for the system. 
+I believe that the significance of allocating a node increases as the size of the data in a node increases. This can be seen in the increase in the system time when I increased the `MAX_BYTES` from `MAX_BYTES=100000` to`MAX_BYTES=1000000`, in case of `alloca` the system time jumped from around 0.24s to 2.39s.  Similar spikes were seen in other programs as well. This makes sense because we are trying to allocate a larger blob of memory which can be harder to find for the system. 
 
 ---
 
 ## Data Collected
-|   |   |   |   |   |   |   |   |   |   |
-|---|---|---|---|---|---|---|---|---|---|
+
 |IMPL TYPE|OPT|MIN_BYTES|MAX_BYTES|NUM_BLOCKS|MIN_TIME|AVG_TIME|MAX_TIME|MEMORY ~(KB)|PAGE ALLOCATIONS|
+|---|---|---|---|---|---|---|---|---|---|
 |alloca|-g|10|10000|1000000|24.09|24.32|24.87|5040000|69|
 |list|-g|10|10000|1000000|88.82|89.93|91.56|4957000|37179|
 |malloc|-g|10|10000|1000000|23.66|23.81|24.06|4934000|36996|
