@@ -88,7 +88,7 @@
                     // Specify how many vertices we'd like generated
                     //   This variable will be used twice, which is why
                     //   it's not hard-coded into functions.
-                    const N = 12; // number of vertices
+                    const N = 3; // number of vertices
 
                     // Other code we'll need later, in combination with the
                     //   code above marked for later use.
@@ -98,7 +98,7 @@
                     // Request that vertices are processed.  In this case,
                     //   we're requesting that the vertices be grouped to
                     //   be a triangle fan.
-                    gl.drawArrays(gl.LINE_LOOP, 0, 3);
+                    gl.drawArrays(gl.LINE_LOOP, 0, N);
 
                     // Request that our render() function is called again
                     //   at some point in the future.  We use the
