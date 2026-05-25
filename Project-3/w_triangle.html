@@ -49,6 +49,7 @@
                 //   the rendering area's background to)
                 var canvas = document.getElementById("webgl");
                 var gl = canvas.getContext("webgl2");
+                //gl.viewport(0, 0, canvas.width, canvas.height);
 
                 gl.clearColor(0.1, 0.1, 0.1, 1.0);
 
@@ -120,6 +121,6 @@
            For us, it'll just be our canvas element, but you could add
            text, buttons, or anything else to make up the page. -->
     <body>
-        <canvas id="webgl" width="512" height="512"></canvas>
+        <canvas id="webgl" width="1024" height="1024"></canvas>
     </body>
 </html>
