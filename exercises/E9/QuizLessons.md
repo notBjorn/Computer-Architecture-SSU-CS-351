@@ -1,0 +1,3 @@
+- Similar to the padding question on the fina. We do not want ot lump data together for a player we want to create an structure of arrays. So it should be Format B. We store X-Postions, Then Y then Z. Rather than using a struct with X Y and Z.
+- When we can paralize is pretty straight forward due to the given info.
+- To efficiently use the vector instructions in SIMD we would need to set and align the data in specificly to AVX512, which means we would need to do some special work.
