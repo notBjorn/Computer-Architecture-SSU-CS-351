@@ -1,5 +1,9 @@
 
+`iota.cpp - CPU`: Fills a large vector with sequential values that are incremented based on the initial values. CPU does this sequentially meaning only one vector element is assigned a value at a time. 
 
+`iota.cu -GPU`: Does the same task but in parallel by creating `cuda` threads that then assign each element a value. 
+
+`julia.cpp -CPU`: generates a Julia/Mandelbrot set by iterating $z = z^2 + c$ for each pixel. Every pixel is then colored based on when they escape and the given color map. This is done sequentially using nested for loops for CPU, an operation at at time. `julia.cu -GPU` does the same using `CUDA`. We parallelize the task as one pixel does not have to depend on another, all we care about is iterating the equation. 
 
 **Question:** Are the results what you expected? Speculate as to why it looks like CUDA isn’t a great solution for this problem.
 
@@ -37,6 +41,7 @@ __Results for IOTA.gpu__
 
 Looking at these two we can see that the CPU is about 1.3x faster (roughly 25–30%). I did not expect this to be the case. I assumed this because I thought that the workload would be way more divided and easier for CUDA, but now that I think about it, I believe the work that was divided among all the threads may not have been enough to warrant doing it in CUDA, as we are just adding two numbers together. I believe that the bulk of the time being taken is not the computation, rather it is the time it takes to transfer all the data back from the GPU to the CPU over PCIe. When a CPU does this it has rapid access to all the memory, but going through PCIe to the GPU and back is much slower, so the bulk of the time must be the setup and transfer process for CUDA, like allocating GPU memory and copying the results back.
 
+When I ran the same test on the julia set, the gpu was faster and i believe this was due to julia set being more compute heavy.
 
 ![Julia set](julia.png)
-*Julia set with starting $z = 0.420 + 0.670i$*
+*Julia set with starting $z = 0.420 + 0.670$*
