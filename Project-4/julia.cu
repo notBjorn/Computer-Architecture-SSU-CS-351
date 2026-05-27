@@ -60,24 +60,24 @@ struct Color {
 __device__
 Color setColor(int iterations) {
     constexpr size_t NumColors = 16;
-    const Color colors[NumColors] = {
-        Color(66, 30, 15),
-        Color(25, 7, 26),
-        Color(9, 1, 47),
-        Color(4, 4, 73),
-        Color(0, 7, 100),
-        Color(12, 44, 138),
-        Color(24, 82, 177),
-        Color(57, 125, 209),
-        Color(134, 181, 229),
-        Color(211, 236, 248),
-        Color(241, 233, 191),
-        Color(248, 201, 95),
-        Color(255, 170, 0),
-        Color(204, 128, 0),
-        Color(153, 87, 0),
-        Color(106, 52, 3)
-    };
+  const Color colors[NumColors] = {
+    Color( 20,   0,  30),  
+    Color( 40,   0,  60),
+    Color( 70,   0,  95),
+    Color(100,  10, 130),
+    Color(130,  25, 165),   
+    Color(155,  45, 185),
+    Color(170,  70, 200),
+    Color(170, 100, 210),   
+    Color(155, 130, 215),
+    Color(130, 160, 220),   
+    Color(100, 185, 225),
+    Color( 75, 205, 230),
+    Color( 50, 220, 235),  
+    Color( 80, 230, 235),
+    Color(140, 240, 240),
+    Color(210, 250, 250)    
+};
 
     const Color black;
 
@@ -183,7 +183,7 @@ void julia(Complex d, Complex center, Color* pixels) {
     
     Complex c(x*d.x, y*d.y);
     c -= center;
-    Complex z;
+    Complex z(0.420, 0.670);
             
     int iter = 0;
     while (iter < MaxIterations && magnitude(z) < 2.0) {
