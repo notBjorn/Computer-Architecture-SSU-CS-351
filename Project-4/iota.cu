@@ -12,7 +12,13 @@ const Count TestSize = 1'000'000'000;
 const Count NumCheckValues = 500;
 
 //
-// --- Add your CUDA kernel implementation of iota here
+__global__ void iota(size_t n, DataType* x, DataType initVar) {
+    size_t i = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if (i < n) {
+        x[i] = static_cast<DataType>(i) + initVar;
+    }
+}
 //
 
 int main(int argc, char* argv[]) {
