@@ -38,6 +38,5 @@ __Results for IOTA.gpu__
 Looking at these two we can see that the CPU is about 1.3x faster (roughly 25–30%). I did not expect this to be the case. I assumed this because I thought that the workload would be way more divided and easier for CUDA, but now that I think about it, I believe the work that was divided among all the threads may not have been enough to warrant doing it in CUDA, as we are just adding two numbers together. I believe that the bulk of the time being taken is not the computation, rather it is the time it takes to transfer all the data back from the GPU to the CPU over PCIe. When a CPU does this it has rapid access to all the memory, but going through PCIe to the GPU and back is much slower, so the bulk of the time must be the setup and transfer process for CUDA, like allocating GPU memory and copying the results back.
 
 
-
 ![Julia set](julia.png)
 *Julia set with starting $z = 0.420 + 0.670i$*
