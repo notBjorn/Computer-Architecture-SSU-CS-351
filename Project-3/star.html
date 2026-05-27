@@ -14,7 +14,7 @@
                 float vid = float(gl_VertexID -1  );
 
                 const float Pi = 3.14159265358979;
-                float angle  = vid * 2.0 * Pi / N;
+                float angle  = vid * 2.0 * Pi / (N-2.0); //to create the star we are creating triagnles using TRIANGLE_FAN, we need 2 less then number of verticies
                 vec2 v = radius * vec2(cos(angle), sin(angle));
 
                 gl_Position = vec4(v, 0.0, 1.0);
@@ -49,7 +49,9 @@
                     gl.clear(gl.COLOR_BUFFER_BIT);
                     gl.useProgram(program);
 
-                    const N =3; // number of vertices
+                    const starPoints = 5;
+
+                    const N = 2 + starPoints * 2; //number of verticies
 
                     // Other code we'll need later, in combination with the
                     //   code above marked for later use.
