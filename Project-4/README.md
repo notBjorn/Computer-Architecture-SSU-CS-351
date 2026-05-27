@@ -44,4 +44,4 @@ Looking at these two we can see that the CPU is about 1.3x faster (roughly 25–
 When I ran the same test on the julia set, the gpu was faster and i believe this was due to julia set being more compute heavy.
 
 ![Julia set](julia.png)
-*Julia set with starting $z = 0.420 + 0.670$*
+*Julia set with starting* $z = 0.420 + 0.670$
