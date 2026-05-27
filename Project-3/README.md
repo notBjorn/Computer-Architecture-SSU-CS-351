@@ -2,7 +2,7 @@
 
 [An almost circle, 10 Sided Polygon](polyCircle.html): Drew an polygon with 10 sides using the `gl.TRIANGLE_FAN`. where triangles are created at various angles from the origin and two other points to give the polygon its shape. Then colored using a fragment shader
 
-[Truly Circle Polygon](trulyCircle.html): Just a polygon like before but with more triangle fans to make it look like a circle.
+[Truly Circle Polygon](turlyCircle.html): Just a polygon like before but with more triangle fans to make it look like a circle.
 
 [5 Pointed Star](star.html): Created a star shape with 5 points. We check what the radius needs to be by using the mod function, inner radius is then set to .5 while outer radius is set to 1. the Radius then influences the position of the point that will be placed by `gl_Position`. We need 10 fans in total if we want 5 pointed star. the number of vertices will be 12 as we need one starting vertex in the origin and one that overlaps the starting vertex to finish the shape. I have added a variable called `starPoints` that dynamically changes the number of points our star can have.
 
